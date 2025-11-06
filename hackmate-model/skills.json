@@ -1,0 +1,20 @@
+{
+  "canonical_skills": [
+    "html","css","javascript","typescript","react","nextjs","vue","tailwind",
+    "node","express","fastapi","django","flask","graphql","rest","postgres","mysql","mongodb",
+    "flutter","react-native",
+    "python","pandas","numpy","scikit-learn","pytorch","tensorflow","opencv","nlp","llm",
+    "docker","kubernetes","aws","gcp","azure","linux","git","ci/cd",
+    "uiux","figma","wireframing","prototyping"
+  ],
+  "aliases": {
+    "js": "javascript",
+    "ts": "typescript",
+    "reactjs": "react",
+    "react.js": "react",
+    "nodejs": "node",
+    "postgresql": "postgres",
+    "sklearn": "scikit-learn",
+    "ui/ux": "uiux"
+  }
+}
