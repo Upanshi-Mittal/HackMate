@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {
-  Card, CardHeader, CardTitle, CardContent, CardDescription,
+import { Card, CardHeader, CardTitle, CardContent, CardDescription,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
+import {BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell
 } from "recharts";
 import {
@@ -14,7 +12,6 @@ import {
   LineChart, Settings, LogOut
 } from "lucide-react";
 
-// ------------------------ Helpers ------------------------
 const getGithubUsername = (url) => {
   if (!url) return null;
   try {
@@ -39,7 +36,6 @@ function useGithubProfile(username) {
   return data;
 }
 
-// ------------------------ UI Helpers ------------------------
 const SidebarLink = ({ icon, label, to, active }) => (
   <Link
     to={to}
@@ -71,7 +67,6 @@ const Stat = ({ label, value }) => (
   </div>
 );
 
-// ------------------------ MAIN DASHBOARD ------------------------
 export default function DashboardPremium() {
   const nav = useNavigate();
   const [user, setUser] = useState(null);
@@ -94,7 +89,6 @@ export default function DashboardPremium() {
 
   if (!user || !details) return null;
 
-  // -------- Skills --------
   const skillArray = details.skills
     ? details.skills.split(",").map((s) => s.trim()).filter(Boolean)
     : [];
@@ -116,30 +110,25 @@ export default function DashboardPremium() {
     { day: "Sun", commits: 1 },
   ];
 
-  // ✅ ✅ ✅ CENTERED DASHBOARD WRAPPER
   return (
-    <div className="flex flex-col items-center justify-center w-80vw h-100vh bg-gradient-to-b from-gray-900 via-black to-gray-900">
+    <div className="container" style={{}}>
     <div className="min-h-screen w-full flex items-center justify-center  
         bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]
         from-slate-900 via-slate-950 to-black p-6">
 
-      {/* ✅ PREMIUM CENTER CONTAINER */}
       <div className="w-[90%] max-w-7xl min-h-[85vh] rounded-3xl 
           bg-white/10 backdrop-blur-2xl border border-white/10 shadow-2xl 
           overflow-hidden flex">
 
-        {/* ✅ SIDEBAR + MAIN */}
         <div className="flex w-full">
 
-          {/* ---------- Sidebar ---------- */}
           <aside className="hidden md:flex md:w-64 lg:w-72 flex-col gap-4 p-5
             bg-white/5 backdrop-blur-xl border-r border-white/10">
             <div className="flex items-center gap-3 px-2 py-2">
               <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400" />
-              <div className="text-lg font-semibold tracking-wide">Hackmate</div>
             </div>
 
-            <nav className="mt-2 flex flex-col gap-2">
+            <nav style={{ flexGrow: 1 ,gap: "8px"}} className="flex flex-col gap-2 mt-4">
               <SidebarLink icon={<LayoutDashboard size={18} marginRight={8} />} label="Dashboard.  " to="#" active />
               <SidebarLink icon={<Github size={18} marginRight={8} />} label="GitHub Analysis.  " to="/github" />
               <SidebarLink icon={<Sparkles size={18} marginRight={8} />} label="Skills.  " to="/skills" />
@@ -159,10 +148,8 @@ export default function DashboardPremium() {
             </div>
           </aside>
 
-          {/* ---------- MAIN PANEL ---------- */}
           <main className="flex-1 min-w-0">
 
-            {/* Top Bar */}
             <div className="flex items-center justify-between px-6 py-5
               border-b border-white/10 bg-black/20 backdrop-blur">
 
@@ -191,12 +178,10 @@ export default function DashboardPremium() {
               </div>
             </div>
 
-            {/* ------------- CONTENT ------------- */}
             <div className="max-w-7xl mx-auto px-6 py-8">
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-                {/* Profile Summary */}
                 <GlassCard>
                   <CardHeader>
                     <CardTitle>👤 Profile Summary</CardTitle>
@@ -217,7 +202,6 @@ export default function DashboardPremium() {
                   </CardContent>
                 </GlassCard>
 
-                {/* Skill Strength */}
                 <GlassCard className="lg:col-span-2">
                   <CardHeader>
                     <CardTitle>📊 Skill Strength</CardTitle>
@@ -234,7 +218,6 @@ export default function DashboardPremium() {
                   </CardContent>
                 </GlassCard>
 
-                {/* Skill Distribution */}
                 <GlassCard>
                   <CardHeader>
                     <CardTitle>🧠 Skill Distribution</CardTitle>

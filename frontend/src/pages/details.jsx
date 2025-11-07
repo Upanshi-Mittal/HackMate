@@ -59,14 +59,16 @@ export default function Details() {
         <input type="tel" name="phoneNumber" placeholder="Phone Number" required className="details-input" />
         <input type="url" name="githubProfile" placeholder="GitHub Profile URL" required className="details-input" />
         <input type="linkedin" name="linkedinProfile" placeholder="LinkedIn Profile URL" required className="details-input" />
-
+        
         <div
           className="details-input flex flex-wrap gap-2 cursor-pointer bg-black"
           onClick={() => setSkillsModal(true)}
+          style={{ height: "auto" }}  
         >
+          <div className="label-text">Skills</div>
           {skills.length > 0 ? (
             skills.map((skill) => (
-              <span key={skill} className="tag-skill">
+              <span key={skill} className="tag-skill" style={{ display: "inline-flex", alignItems: "center", padding: "5px 10px", backgroundColor: "#1f2937", borderRadius: "15px",  marginBottom: "5px" }}>
                 {skill}
                 <X
                   size={14}
@@ -74,6 +76,7 @@ export default function Details() {
                   onClick={(e) => {
                     e.stopPropagation();
                     toggleSkill(skill);
+                    
                   }}
                 />
               </span>
@@ -91,7 +94,6 @@ export default function Details() {
           Save & Continue
         </button>
       </form>
-
       {skillsModal && (
         <div
           className="skills-overlay"
