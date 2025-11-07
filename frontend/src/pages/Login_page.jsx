@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { WebPortal, LoginError } from "jsjiit";
 import { useNavigate } from "react-router-dom";
+import "./login.css"; // ✅ IMPORTANT: add this
 
 export default function LoginPage() {
   const [roll, setRoll] = useState("");
@@ -14,15 +15,12 @@ export default function LoginPage() {
 
     try {
       const portal = new WebPortal();
-
-      // ✅ Correct JSJIIT function
       const session = await portal.student_login(roll, password);
 
-localStorage.setItem("jiit_session", JSON.stringify(session));
+      localStorage.setItem("jiit_session", JSON.stringify(session));
 
-console.log("✅ Login success!", session);
-navigate("/Details");
-;
+      console.log("✅ Login success!", session);
+      navigate("/Details");
 
     } catch (err) {
       if (err instanceof LoginError) {
@@ -37,28 +35,29 @@ navigate("/Details");
   };
 
   return (
-    <div style={{ padding: 40 }}>
-      <h2>JIIT Login</h2>
+    <div className="login-container">
 
-      <form onSubmit={handleLogin}>
+      <form onSubmit={handleLogin} className="login-card">
+
+        <h2 className="title">JIIT Login</h2>
 
         <input
           type="text"
           placeholder="Enrollment Number"
           value={roll}
           onChange={(e) => setRoll(e.target.value)}
+          className="input"
         />
-        <br />
 
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          className="input"
         />
-        <br />
 
-        <button disabled={loading} type="submit">
+        <button disabled={loading} type="submit" className="btn">
           {loading ? "Logging in..." : "Login"}
         </button>
 

@@ -39,8 +39,8 @@ export default function Home() {
           border: "1px solid #ccc",
           borderRadius: "8px",
           padding: "20px",
-          width: "400px",
-          height: "400px",
+          width: "70vw",
+          height: "60vh",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden"
