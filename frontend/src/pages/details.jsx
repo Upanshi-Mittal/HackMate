@@ -35,17 +35,7 @@ export default function Details() {
       skills: skills.join(","),
       portfolio: e.target.portfolio.value,
     };
-
-    localStorage.setItem("userDetails", JSON.stringify(userDetails));
-    localStorage.setItem(
-      "jiit_session",
-      JSON.stringify({
-        name: userDetails.personalEmail.split("@")[0],
-        enrollmentno: "Prototype123",
-        instituteid: "JIIT",
-      })
-    );
-
+ localStorage.setItem("userDetails", JSON.stringify(userDetails));
     navigate("/home");
   };
 

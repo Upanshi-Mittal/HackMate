@@ -188,3 +188,10 @@ input::placeholder {
 .skills-modal{
   background-color: #0a0a0a;
 }
+
+
+.vertical {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
