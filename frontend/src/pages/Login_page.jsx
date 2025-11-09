@@ -2,7 +2,7 @@ import { useState } from "react";
 import { WebPortal, LoginError } from "jsjiit";
 import { useNavigate } from "react-router-dom";
 import "./login.css"; // ✅ IMPORTANT: add this
-import grid from "../assets/grid.avif"
+import grid from "../assets/grid.jpeg"
 export default function LoginPage() {
   const [roll, setRoll] = useState("");
   const [password, setPassword] = useState("");
@@ -35,7 +35,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="login-container" style={{ backgroundImage: `url(${grid})` }}>
+    <div className="login-container" style={{ backgroundImage: `url(${grid})`,backgroundImageSize:"200%" }}>
 
       <h1 className="login-title" >HackMate</h1>
       <form onSubmit={handleLogin} className="login-card">
